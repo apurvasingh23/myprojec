@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎂 Happy Birthday Swastika! 🎉</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pacifico&family=Poppins:wght@300;400;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎂</text></svg>">
+</head>
+<body>
+    <!-- Star Field Background -->
+    <div class="star-field">
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+    </div>
+    
+    <!-- Floating Elements Container -->
+    <div class="floating-elements">
+        <!-- Will be populated by JavaScript -->
+    </div>
+    
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Top Navigation -->
+        <div class="top-nav">
+            <div class="nav-item active" data-section="welcome">🎉 Welcome</div>
+            <div class="nav-item" data-section="timer">⏳ Timer</div>
+            <div class="nav-item" data-section="surprises">🎁 Surprises</div>
+            <div class="nav-item" data-section="wishes">💝 Wishes</div>
+        </div>
+        
+        <!-- Welcome Section -->
+        <section id="welcome" class="section active">
+            <div class="hero-section">
+                <div class="hero-content">
+                    <div class="hero-title">
+                        <h1 class="title-text">
+                            <span class="letter">H</span>
+                            <span class="letter">A</span>
+                            <span class="letter">P</span>
+                            <span class="letter">P</span>
+                            <span class="letter">Y</span>
+                            <span class="space"></span>
+                            <span class="letter">B</span>
+                            <span class="letter">I</span>
+                            <span class="letter">R</span>
+                            <span class="letter">T</span>
+                            <span class="letter">H</span>
+                            <span class="letter">D</span>
+                            <span class="letter">A</span>
+                            <span class="letter">Y</span>
+                        </h1>
+                        
+                        <div class="name-container">
+                            <div class="name-aura"></div>
+                            <div class="name-main">
+                                <span class="name-letter">S</span>
+                                <span class="name-letter">W</span>
+                                <span class="name-letter">A</span>
+                                <span class="name-letter">S</span>
+                                <span class="name-letter">T</span>
+                                <span class="name-letter">I</span>
+                                <span class="name-letter">K</span>
+                                <span class="name-letter">A</span>
+                            </div>
+                            <div class="name-sparkle"></div>
+                        </div>
+                        
+                        <div class="hero-subtitle">
+                            <p>January 12th • Your Special Day</p>
+                            <div class="date-badge">
+                                <i class="fas fa-calendar-star"></i>
+                                <span>12.01.2025</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-image">
+                        <div class="image-frame">
+                            <div class="frame-glow"></div>
+                            <div class="frame-content">
+                                <div class="photo-placeholder" id="photoPlaceholder">
+                                    <i class="fas fa-user-circle"></i>
+                                    <p>Swastika's Photo</p>
+                                    <button class="upload-btn" id="uploadBtn">
+                                        <i class="fas fa-cloud-upload-alt"></i> Add Photo
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="frame-decoration">
+                                <div class="decoration-heart"><i class="fas fa-heart"></i></div>
+                                <div class="decoration-star"><i class="fas fa-star"></i></div>
+                                <div class="decoration-crown"><i class="fas fa-crown"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-actions">
+                    <button class="action-btn start-btn" id="startCelebration">
+                        <i class="fas fa-play-circle"></i> Start Celebration
+                    </button>
+                    <button class="action-btn surprise-btn" id="quickSurprise">
+                        <i class="fas fa-gift"></i> Quick Surprise
+                    </button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Countdown Timer Section -->
+        <section id="timer" class="section">
+            <div class="timer-section">
+                <div class="timer-header">
+                    <h2><i class="fas fa-clock"></i> Countdown to Celebration</h2>
+                    <p class="timer-subtitle">The party starts in...</p>
+                </div>
+                
+                <div class="countdown-timer">
+                    <div class="timer-unit">
+                        <div class="unit-number" id="days">00</div>
+                        <div class="unit-label">Days</div>
+                    </div>
+                    <div class="timer-separator">:</div>
+                    <div class="timer-unit">
+                        <div class="unit-number" id="hours">00</div>
+                        <div class="unit-label">Hours</div>
+                    </div>
+                    <div class="timer-separator">:</div>
+                    <div class="timer-unit">
+                        <div class="unit-number" id="minutes">00</div>
+                        <div class="unit-label">Minutes</div>
+                    </div>
+                    <div class="timer-separator">:</div>
+                    <div class="timer-unit">
+                        <div class="unit-number" id="seconds">00</div>
+                        <div class="unit-label">Seconds</div>
+                    </div>
+                </div>
+                
+                <div class="timer-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <div class="progress-text">
+                        <span>Time until midnight: <span id="progressPercent">0%</span></span>
+                    </div>
+                </div>
+                
+                <div class="timer-message" id="timerMessage">
+                    <i class="fas fa-birthday-cake"></i>
+                    <span>Getting ready for the celebration!</span>
+                </div>
+                
+                <div class="timer-features">
+                    <button class="feature-btn" id="setReminder">
+                        <i class="fas fa-bell"></i> Set Reminder
+                    </button>
+                    <button class="feature-btn" id="shareTimer">
+                        <i class="fas fa-share-alt"></i> Share Countdown
+                    </button>
+                    <button class="feature-btn" id="surpriseTimer">
+                        <i class="fas fa-magic"></i> Time Surprise
+                    </button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Surprises Section -->
+        <section id="surprises" class="section">
+            <div class="surprises-section">
+                <h2><i class="fas fa-box-open"></i> Birthday Surprises</h2>
+                <p class="section-subtitle">Click to reveal amazing surprises!</p>
+                
+                <div class="surprises-grid">
+                    <div class="surprise-card" data-surprise="fireworks">
+                        <div class="card-front">
+                            <div class="card-icon"><i class="fas fa-fire"></i></div>
+                            <h3>Fireworks Show</h3>
+                            <p>Sparkling celebration</p>
+                        </div>
+                        <div class="card-back">
+                            <p>Click for amazing fireworks!</p>
+                        </div>
+                    </div>
+                    
+                    <div class="surprise-card" data-surprise="message">
+                        <div class="card-front">
+                            <div class="card-icon"><i class="fas fa-envelope"></i></div>
+                            <h3>Secret Message</h3>
+                            <p>Special birthday note</p>
+                        </div>
+                        <div class="card-back">
+                            <p>You're amazing Swastika! 💖</p>
+                        </div>
+                    </div>
+                    
+                    <div class="surprise-card" data-surprise="stars">
+                        <div class="card-front">
+                            <div class="card-icon"><i class="fas fa-star"></i></div>
+                            <h3>Star Shower</h3>
+                            <p>Magical star effect</p>
+                        </div>
+                        <div class="card-back">
+                            <p>Make a wish on these stars! ✨</p>
+                        </div>
+                    </div>
+                    
+                    <div class="surprise-card" data-surprise="hearts">
+                        <div class="card-front">
+                            <div class="card-icon"><i class="fas fa-heart"></i></div>
+                            <h3>Heart Rain</h3>
+                            <p>Love shower</p>
+                        </div>
+                        <div class="card-back">
+                            <p>Sending you lots of love! 💕</p>
+                        </div>
+                    </div>
+                    
+                    <div class="surprise-card" data-surprise="gift">
+                        <div class="card-front">
+                            <div class="card-icon"><i class="fas fa-gift"></i></div>
+                            <h3>Virtual Gift</h3>
+                            <p>Special present</p>
+                        </div>
+                        <div class="card-back">
+                            <p>You deserve the world! 🎁</p>
+                        </div>
+                    </div>
+                    
+                    <div class="surprise-card" data-surprise="confetti">
+                        <div class="card-front">
+                            <div class="card-icon"><i class="fas fa-party-horn"></i></div>
+                            <h3>Confetti Blast</h3>
+                            <p>Party explosion</p>
+                        </div>
+                        <div class="card-back">
+                            <p>Let's party! 🎉</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mega-surprise">
+                    <button class="mega-btn" id="megaSurpriseBtn">
+                        <i class="fas fa-crown"></i>
+                        <span>MEGA SURPRISE</span>
+                        <i class="fas fa-crown"></i>
+                    </button>
+                    <p class="mega-hint">(Click for the ultimate birthday experience!)</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Wishes Section -->
+        <section id="wishes" class="section">
+            <div class="wishes-section">
+                <h2><i class="fas fa-heart"></i> Birthday Wishes</h2>
+                <p class="section-subtitle">Special messages for you</p>
+                
+                <div class="wishes-container">
+                    <div class="wish-generator">
+                        <div class="wish-display" id="wishDisplay">
+                            <p class="wish-text">Happy Birthday Swastika! May your day be as wonderful as you are! ✨</p>
+                            <div class="wish-author">— Birthday Wisher</div>
+                        </div>
+                        
+                        <div class="wish-controls">
+                            <button class="wish-btn" id="newWish">
+                                <i class="fas fa-sync-alt"></i> New Wish
+                            </button>
+                            <button class="wish-btn" id="saveWish">
+                                <i class="fas fa-bookmark"></i> Save Wish
+                            </button>
+                            <button class="wish-btn" id="shareWish">
+                                <i class="fas fa-share"></i> Share
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="wish-cards">
+                        <div class="wish-card special">
+                            <div class="card-header">
+                                <i class="fas fa-crown"></i>
+                                <h3>Special Message</h3>
+                            </div>
+                            <p class="card-text">To Swastika, the most amazing person! Wishing you endless joy and success in everything you do. May this year bring you closer to all your dreams! 🎂</p>
+                        </div>
+                        
+                        <div class="wish-card fun">
+                            <div class="card-header">
+                                <i class="fas fa-laugh-beam"></i>
+                                <h3>Fun Wish</h3>
+                            </div>
+                            <p class="card-text">May your birthday be filled with laughter, cake, and unforgettable moments! Keep smiling and shining bright! 😄🎉</p>
+                        </div>
+                        
+                        <div class="wish-card love">
+                            <div class="card-header">
+                                <i class="fas fa-heart"></i>
+                                <h3>Love & Care</h3>
+                            </div>
+                            <p class="card-text">Sending you oceans of love and mountains of happiness! You deserve the world and more. Happy Birthday beautiful! 💖</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="birthday-cake">
+                    <div class="cake">
+                        <div class="cake-layer bottom"></div>
+                        <div class="cake-layer middle"></div>
+                        <div class="cake-layer top"></div>
+                        <div class="candles">
+                            <div class="candle" data-candle="1">
+                                <div class="candle-body"></div>
+                                <div class="flame"></div>
+                            </div>
+                            <div class="candle" data-candle="2">
+                                <div class="candle-body"></div>
+                                <div class="flame"></div>
+                            </div>
+                            <div class="candle" data-candle="3">
+                                <div class="candle-body"></div>
+                                <div class="flame"></div>
+                            </div>
+                        </div>
+                        <div class="cake-plate"></div>
+                    </div>
+                    <div class="cake-controls">
+                        <button class="cake-btn" id="blowAll">
+                            <i class="fas fa-wind"></i> Blow All Candles
+                        </button>
+                        <button class="cake-btn" id="makeWish">
+                            <i class="fas fa-hand-sparkles"></i> Make a Wish
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Celebration Effects -->
+        <div class="celebration-effects">
+            <div class="fireworks-container" id="fireworksContainer"></div>
+            <div class="confetti-container" id="confettiContainer"></div>
+            <div class="hearts-container" id="heartsContainer"></div>
+            <div class="stars-container" id="starsContainer"></div>
+        </div>
+        
+        <!-- Birthday Modal -->
+        <div class="birthday-modal" id="birthdayModal">
+            <div class="modal-content">
+                <div class="modal-close" id="modalClose">&times;</div>
+                <div class="modal-header">
+                    <i class="fas fa-crown modal-crown"></i>
+                    <h2 class="modal-title">🎊 HAPPY BIRTHDAY 🎊</h2>
+                    <i class="fas fa-crown modal-crown"></i>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-name">Swastika</div>
+                    <p class="modal-message">Wishing you the most amazing birthday filled with love, joy, and wonderful surprises!</p>
+                    <div class="modal-sparkles"></div>
+                </div>
+                <div class="modal-footer">
+                    <button class="modal-btn" id="modalCelebrate">Celebrate More!</button>
+                    <button class="modal-btn" id="modalCloseBtn">Close</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Notification -->
+        <div class="notification" id="notification">
+            <div class="notification-content">
+                <i class="fas fa-bell"></i>
+                <span class="notification-text"></span>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <footer class="main-footer">
+            <div class="footer-content">
+                <div class="footer-love">
+                    <i class="fas fa-heart"></i>
+                    <span>From Apurva with love 💖</span>
+                    <i class="fas fa-heart"></i>
+                </div>
+                <div class="footer-date">
+                    <i class="fas fa-birthday-cake"></i>
+                    <span>January 12, 2025</span>
+                </div>
+                <div class="footer-sparkle">
+                    <i class="fas fa-sparkle"></i>
+                    <i class="fas fa-sparkle"></i>
+                    <i class="fas fa-sparkle"></i>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
